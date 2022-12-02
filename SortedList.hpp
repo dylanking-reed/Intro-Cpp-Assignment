@@ -11,6 +11,8 @@ class ListNode {
     ListNode *prev;  
     ListNode *next;
     string_view val;
+    ListNode(string_view _val);
+    ListNode(const ListNode &other);
     void attach_after(ListNode* node);
     void attach_before(ListNode* node);
     void remove_after();
@@ -32,12 +34,12 @@ class SortedList {
     void empty();
     SortingMethod get_sorting_method() const;
     size_t get_length() const;
-    vector<string_view> into_vec() const;
+    vector<string_view> *into_vec() const;
     string_view at(size_t i) const;
     void sort_by_length();
     void sort_by_lexicographical();
   private:
-    ListNode first; 
+    ListNode *first; 
     size_t length;
     SortingMethod sorting_method;
 };
